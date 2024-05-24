@@ -1402,7 +1402,6 @@ class ClientRequest extends OutgoingMessage {
   #timeoutTimer?: Timer = undefined;
   #options;
   #finished;
-  #tls;
 
   _httpMessage;
 
@@ -1496,7 +1495,6 @@ class ClientRequest extends OutgoingMessage {
         body: body && method !== "GET" && method !== "HEAD" && method !== "OPTIONS" ? body : undefined,
         redirect: "manual",
         signal: this[kAbortController].signal,
-        tls,
         // Timeouts are handled via this.setTimeout.
         timeout: false,
         // Disable auto gzip/deflate
